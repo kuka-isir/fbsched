@@ -8,6 +8,9 @@
 #define OROCOS_FBSCHED_COMPONENT_HPP
 
 #include <rtt/RTT.hpp>
+#include <rtt/Component.hpp>
+#include <rtt/TaskContext.hpp>
+#include <iostream>
 
 class FBSched
 	: public RTT::TaskContext

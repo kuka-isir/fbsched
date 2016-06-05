@@ -5,8 +5,6 @@
  */
 
 #include "fbsched.hpp"
-#include <rtt/Component.hpp>
-#include <iostream>
 
 using namespace RTT;
 using namespace std;
@@ -92,12 +90,9 @@ void FBSched::updateHook()
 			Logger::log(Logger::Error)
 				<< "FBSched error: failed to trigger component #" << i
 				<< " '" << sched_list[i]->getName() << "'" << endlog();
-			goto out_fail;
+			break;
 		}
 	}
-
- out_fail:
-	return;
 }
 
 void FBSched::cleanupHook()
@@ -121,8 +116,7 @@ void FBSched::displaySchedList()
 	}
 }
 
-ORO_CREATE_COMPONENT_LIBRARY()
-ORO_LIST_COMPONENT_TYPE( FBSched )
+ORO_CREATE_COMPONENT( FBSched )
 
 /**************************************************************************
  *  You may redistribute this software and/or modify it under either the  *
